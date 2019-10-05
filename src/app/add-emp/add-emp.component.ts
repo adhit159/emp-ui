@@ -66,7 +66,7 @@ export class AddEmpComponent implements OnInit {
         this.loading = false;
       }
     );
-    this.empForm.reset();
+    this.clearForm();
     this.submitted = false;
     this.loading = false;
     this.alertService.success("Saved successfully",true);
@@ -79,5 +79,9 @@ export class AddEmpComponent implements OnInit {
       console.log(error);
       this.alertService.error(error);
     });
+  }
+
+  clearForm(){
+    this.empForm.reset();
   }
 }

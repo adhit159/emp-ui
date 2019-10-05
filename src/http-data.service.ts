@@ -7,8 +7,8 @@ import { Observable } from "rxjs";
   providedIn: "root"
 })
 export class HttpDataService {
-  getEmpUri = "http://emp-env.8t6mmmrfcg.ap-south-1.elasticbeanstalk.com/api/v1/getEmpls";
-  addEmpUri = "http://emp-env.8t6mmmrfcg.ap-south-1.elasticbeanstalk.com/api/v1/addEmp";
+  getEmpUri = "http://localhost:5000/api/v1/getEmpls";
+  addEmpUri = "http://localhost:5000/api/v1/addEmp";
 
   constructor(private http: HttpClient) { }
 
