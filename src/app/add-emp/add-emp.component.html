@@ -1,0 +1,130 @@
+<router-outlet></router-outlet>
+
+<div class="container" style="width: 50%;">
+  <h1>Add Employee</h1>
+</div>
+<div id="wrapper" class="animate">
+    <nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Societe General</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav animate side-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#" title="Dashboard"><i class="fas fa-cube"></i> Dashboard <i class="fas fa-cube shortmenu animate"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" title="Cart"><i class="fas fa-cart-plus"></i> Cart <i class="fas fa-cart-plus shortmenu animate"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" title="Comment"><i class="fas fa-comment"></i> Comment <i class="fas fa-comment shortmenu animate"></i></a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-md-auto d-md-flex">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-user"></i> Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-key"></i> Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Employee Form</h5>
+
+              <form [formGroup] = "empForm" (ngSubmit)="onFormSubmit()" name="myform">
+
+                  <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                    </div>
+                  </div>
+              
+                  <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" formControlName="lastName" class="form-control" id="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                    <div *ngIf="submitted && f.lastName.errors" >
+                        <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                    </div>
+                  </div>
+              
+              
+                  <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select class="form-control"  formControlName="gender" required [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+                        <option value="0" disabled>Choose your Gender</option>
+                      <option *ngFor="let g of genders" [ngValue]="g">{{g.value}}</option>
+                    </select>
+
+                    <div *ngIf="submitted && f.gender.errors">
+                        <div *ngIf="f.gender.required">Gender is required</div>
+                    </div>
+                    
+
+
+                  </div>
+              
+                  <div class="form-group">
+                    <label for="dept">Department</label>
+                    <input type="text" formControlName="dept" class="form-control" id="dept" [ngClass]="{ 'is-invalid': submitted && f.dept.errors }" />
+                    <div *ngIf="submitted && f.dept.errors" class="invalid-feedback">
+                        <div *ngIf="f.dept.errors.required">Department is required</div>
+                    </div>
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="dob">DOB</label>
+                      <input type="date" formControlName="dob" class="form-control" id="dob" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
+                      <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                          <div *ngIf="f.dob.errors.required">Department is required</div>
+                      </div>
+                    </div>
+              
+                  <button class="btn btn-primary" [disabled]="loading">Submit</button>
+                  &nbsp; &nbsp; <button class="btn btn-primary">Reset</button>
+                </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">List Of Employees</h5>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">EMP ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">DOB</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let emp of employees">
+                    <th scope="row">SG{{emp.id}}</th>
+                    <td>{{emp.firstName}}</td>
+                    <td>{{emp.lastName}}</td>
+                    <td>{{emp.gender}}</td>
+                    <td>{{emp.dept}}</td>
+                    <td>{{emp.dob}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>

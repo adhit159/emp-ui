@@ -1,5 +1,5 @@
 {
-  "name": "emp-ui",
+  "name": "node-server",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -20,7 +20,12 @@
     "@angular/platform-browser": "~7.0.0",
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
+    "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "path": "^0.12.7",
+    "popper": "^1.0.1",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
   },
@@ -44,5 +49,17 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.1.6"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.7.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adhit159/emp-ui.git"
+  },
+  "author": "lokesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adhit159/emp-ui/issues"
+  },
+  "homepage": "https://github.com/adhit159/emp-ui#readme"
 }
